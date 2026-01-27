@@ -1,26 +1,159 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
+@custom-variant dark (&:is(.dark *));
+ 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* SAJIS FOOD PRODUCTS - Premium Dark Theme */
+  /* Matte Black #0B0B0B | Deep Red #8B0000 | Soft Gold #C9A24D */
+  
+  /* Preserve existing colors, they take precedence */
+  --background: #0B0B0B;
+  --foreground: #FAFAFA;
+  --card: #111111;
+  --card-foreground: #FAFAFA;
+  --popover: #0B0B0B;
+  --popover-foreground: #FAFAFA;
+  --primary: #8B0000;
+  --primary-foreground: #FAFAFA;
+  --secondary: #1A1A1A;
+  --secondary-foreground: #FAFAFA;
+  --muted: #1A1A1A;
+  --muted-foreground: #A0A0A0;
+  --accent: #C9A24D;
+  --accent-foreground: #0B0B0B;
+  --destructive: #8B0000;
+  --destructive-foreground: #FAFAFA;
+  --border: #2A2A2A;
+  --input: #1A1A1A;
+  --ring: #C9A24D;
+  --radius: 0.5rem; /* Preserve existing radius */
+  
+  /* Custom brand colors */
+  --gold: #C9A24D;
+  --gold-light: #D4B366;
+  --red: #8B0000;
+  --red-light: #A52A2A;
+
+  /* Add new shadcn/ui default colors, ensuring existing take precedence */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0); /* Default light theme value, will be overridden by .dark if applicable */
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+ 
+.dark {
+  /* Shadcn/ui dark theme defaults. Existing custom dark theme colors in :root
+     already apply to dark mode due to @custom-variant, so we only add
+     what's missing and explicitly define any new dark-specific overrides */
+  --background: var(--background); /* Keep existing custom value */
+  --foreground: var(--foreground); /* Keep existing custom value */
+  --card: var(--card); /* Keep existing custom value */
+  --card-foreground: var(--card-foreground); /* Keep existing custom value */
+  --popover: var(--popover); /* Keep existing custom value */
+  --popover-foreground: var(--popover-foreground); /* Keep existing custom value */
+  --primary: var(--primary); /* Keep existing custom value */
+  --primary-foreground: var(--primary-foreground); /* Keep existing custom value */
+  --secondary: var(--secondary); /* Keep existing custom value */
+  --secondary-foreground: var(--secondary-foreground); /* Keep existing custom value */
+  --muted: var(--muted); /* Keep existing custom value */
+  --muted-foreground: var(--muted-foreground); /* Keep existing custom value */
+  --accent: var(--accent); /* Keep existing custom value */
+  --accent-foreground: var(--accent-foreground); /* Keep existing custom value */
+  --destructive: var(--destructive); /* Keep existing custom value */
+  --destructive-foreground: var(--destructive-foreground); /* Keep existing custom value */
+  --border: var(--border); /* Keep existing custom value */
+  --input: var(--input); /* Keep existing custom value */
+  --ring: var(--ring); /* Keep existing custom value */
+  /* Add dark mode chart colors */
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0); /* Default dark theme value */
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
 }
 
 @theme inline {
+  --font-sans: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', 'Playfair Display Fallback', Georgia, serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Brand colors */
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-red: var(--red);
+  --color-red-light: var(--red-light);
+
+  /* Add new shadcn/ui default colors for @theme inline */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  ::selection {
+    background-color: var(--gold);
+    color: var(--background);
+  }
 }
