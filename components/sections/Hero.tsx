@@ -101,9 +101,9 @@ export default function Hero() {
             ref={headlineRef}
             className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-balance"
           >
-            <span className="text-foreground">Pure Spices.</span>
+            <span className="text-foreground">Just like home.</span>
             <br />
-            <span className="text-gold">Honest Taste.</span>
+            <span className="text-gold">just like mom.</span>
           </h1>
 
           {/* Subtext */}

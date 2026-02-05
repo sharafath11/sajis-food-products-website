@@ -1,6 +1,7 @@
 'use client'
 
 import React from "react"
+import Image from "next/image"
 
 import { useRef, useLayoutEffect, useState, useEffect } from 'react'
 import gsap from 'gsap'
@@ -101,10 +102,22 @@ export default function Navigation() {
                 e.preventDefault()
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }}
-              className="font-serif text-lg md:text-xl font-bold"
+              className="font-serif text-lg md:text-xl font-bold flex items-center gap-2 leading-tight"
             >
-              <span className="text-gold">SAJIS</span>
-              <span className="text-foreground"> FOOD</span>
+              <span className="flex items-baseline gap-2 whitespace-nowrap">
+                <span className="text-gold">SAJIS</span>
+                <span className="text-foreground">POWDER</span>
+              </span>
+              <span className="relative h-8 w-28 md:h-10 md:w-32 shrink-0 -ml-[43px]">
+                <Image
+                  src="/images/logo.png"
+                  alt="SAJIS"
+                  fill
+                  sizes="(min-width: 768px) 128px, 112px"
+                  className="object-contain"
+                  priority
+                />
+              </span>
             </a>
 
             {/* Desktop Navigation */}
