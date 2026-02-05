@@ -124,7 +124,7 @@ export default function About() {
             </div>
             {/* Years badge */}
             <div className="absolute -bottom-6 -left-6 lg:-left-10 bg-red px-6 py-4">
-              <span className="text-foreground font-serif text-3xl font-bold">15+</span>
+              <span className="text-foreground font-serif text-3xl font-bold">3+</span>
               <p className="text-foreground/80 text-sm">Years of Trust</p>
             </div>
           </div>

@@ -1,5 +1,7 @@
 'use client'
 
+import Image from "next/image"
+
 export default function Footer() {
   return (
     <footer className="py-12 bg-background border-t border-border">
@@ -22,9 +24,20 @@ export default function Footer() {
             </div>
           </div>
 
-          <p className="text-xs text-muted-foreground/80">
-            FSSAI Licensed Food Business Operator
-          </p>
+          <div className="flex flex-col items-center gap-2 sm:items-start">
+            <span className="relative h-7 w-20">
+              <Image
+                src="/images/fassi.png"
+                alt="FSSAI"
+                fill
+                sizes="80px"
+                className="object-contain"
+              />
+            </span>
+            <p className="text-xs text-muted-foreground/80">
+              FSSAI Licensed Food Business Operator
+            </p>
+          </div>
         </div>
       </div>
     </footer>
