@@ -194,8 +194,9 @@ export default function Products() {
             const isUnavailable = selected.price == null
             const hasMrp = selected.mrp != null
             const hasPrice = selected.price != null
-            const isDiscounted =
-              hasMrp && hasPrice && selected.mrp > selected.price
+            const mrpValue = selected.mrp ?? 0
+            const priceValue = selected.price ?? 0
+            const isDiscounted = hasMrp && hasPrice && mrpValue > priceValue
 
             return (
               <div
